@@ -21,9 +21,9 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('removepunc', views.removepunc, name='rempun'),
-    path('capitalizefirst', views.capitalizefirst, name='capfirst'),
-    path('newlineremove', views.newlineremove, name='newlineremove'),
-    path('spaceremove', views.spaceremove, name='spaceremove'),
-    path('charcount', views.charcount, name='charcount')
+    path('removepunc', views.removepunc, name='removepunc'),
+    path('tictac', views.tictac, name='tic tac'),
+    path('portfolio', views.portfolio, name='portfolio'),
+    path('contact', views.contact, name='contact'),
+    path('speach', views.speach, name='speach')
 ]
