@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('removepunc', views.removepunc, name='removepunc'),
+    path('newlineremover', views.newlineremover, name='newlineremover'),
+    path('spaceremove', views.spaceremove, name='spaceremove'),
     path('tictac', views.tictac, name='tic tac'),
     path('portfolio', views.portfolio, name='portfolio'),
     path('contact', views.contact, name='contact'),

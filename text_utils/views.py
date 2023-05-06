@@ -5,21 +5,21 @@ from django.shortcuts import redirect
 
 
 def index(request):
-    return render(request, 'index2.html')
+    return render(request, 'index.html')
 
 
 def removepunc(request):
-    djtext = djtext = request.POST.get('text', 'default')
-    removepunc = request.POST.get('removepunc', 'off')
-    if removepunc == "on":
-        punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
-        analyzed = ""
-        for char in djtext:
-            if char not in punctuations:
-                analyzed = analyzed + char
-        params = {'purpose': 'Removed Punctuations', 'analyzed_text': analyzed}
-        djtext = analyzed
-    return HttpResponse("removepunc")
+    djtext = request.GET.get('text', 'default')
+    print(djtext)
+    return HttpResponse("remove punc")
+
+
+def newlineremover(request):
+    return HttpResponse("newlineremover")
+
+
+def spaceremove(request):
+    return HttpResponse("space remove")
 
 
 def tictac(request):
@@ -29,10 +29,6 @@ def tictac(request):
 
 def portfolio(request):
     return redirect('https://www.ziamalhi.com/')
-
-
-def spaceremove(request):
-    return HttpResponse("space remove")
 
 
 def contact(request):
