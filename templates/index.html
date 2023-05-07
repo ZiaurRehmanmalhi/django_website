@@ -56,10 +56,11 @@
 <body>
     <div class="container">
         <h1>Enter your message:</h1>
-        <form method='get' action='/about'>
-            <label for="message">Message:</label>
-            <input type="text" id="message" name="message" required>
-            <input type="checkbox" name="/analize"> remove punction <br>
+        <label for="message">Message:</label>
+        <form method='get' action='/analize'>
+            <input type="text" id="message" name="text" required>
+            <input type="checkbox" name="/removepunc"> remove punction <br>
+            <input type="checkbox" name="/fullcaps"> Uppercase <br>
             <button type="submit">Analyze</button>
         </form>
         {% if message %}
