@@ -8,10 +8,29 @@ def index(request):
     return render(request, 'index.html')
 
 
-def removepunc(request):
+def analize(request):
+    global analized
     djtext = request.GET.get('text', 'default')
-    print(djtext)
-    return HttpResponse("remove punc")
+    removepunc = request.GET.get('removepunc', 'off')
+    fullcaps = request.GET.get('fullcaps', 'off')
+
+    if removepunc == "on":
+        punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+        analized = ""
+        for char in djtext:
+            if char not in punctuations:
+                analized = analized + char
+        params = {'purpose': 'Remove punctuation', 'analized_text': analized}
+        return render(request, 'analize.html', params)
+
+    elif(fullcaps=="on"):
+        analize = ""
+        for char in djtext:
+            analized = analized + char.upper()
+        params = {'purpose': 'change to uppercase', 'analized_text': analized}
+        return render(request, 'analize.html', params)
+    else:
+        return HttpResponse('Error')
 
 
 def newlineremover(request):
